@@ -1,19 +1,19 @@
 use std::error::Error;
 use std::fs;
 
-pub struct Config<'a> {
-    query: &'a str,
-    file_path: &'a str,
+pub struct Config {
+    query: String,
+    file_path: String,
 }
 
-impl<'a> Config<'a> {
-    pub fn build<'b>(args: &'b [String]) -> Result<Config, &'static str> {
+impl Config {
+    pub fn build(args: &[String]) -> Result<Config, &'static str> {
         if args.len() < 3 {
             return Err("Not enough arguments!");
         }
 
-        let query: &str = &args[1];
-        let file_path: &str = &args[2];
+        let query = args[1].clone();
+        let file_path = args[2].clone();
 
         Ok(Config { query, file_path })
     }
