@@ -1,5 +1,6 @@
 use std::error::Error;
 use std::fs;
+
 pub struct Config<'a> {
     query: &'a str,
     file_path: &'a str,
